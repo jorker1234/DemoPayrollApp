@@ -1,0 +1,13 @@
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit(studentForm);">
+    <input type="hidden" formControlName="id" [ngModel]="student?.id" />
+    <div class="mb-3">
+        <label for="txtFirstname" class="form-label">Firstname</label>
+        <input type="text" class="form-control" id="txtFirstname" formControlName="firstname" [ngModel]="student?.firstname">
+    </div>
+    <div class="mb-3">
+        <label for="txtLastname" class="form-label">Lastname</label>
+        <input type="text" class="form-control" id="txtLastname" formControlName="lastname" [ngModel]="student?.lastname">
+    </div>
+    <hr />
+    <button class="btn btn-primary float-end">Save</button>
+</form>

@@ -1,0 +1,45 @@
+<div class="row">
+   <div class="col-md-6">
+        <h1>Students</h1>
+   </div>
+   <div class="col-md-6">
+       <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#studentDialog" (click)="onSelected()">New student</button>
+   </div>
+    
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col-2">#</th>
+            <th class="col-5">Firstname</th>
+            <th class="col-5">Lastname</th>
+            <th class="col-2"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <th scope="row">{{student.id}}</th>
+            <td>{{student.firstname}}</td>
+            <td>{{student.lastname}}</td>
+            <td>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#studentDialog" (click)="onSelected(student)">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="studentDialog" aria-labelledby="studentDialogTitle">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="studentDialogTitle">New Student</h5>
+                <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <app-student-form [student]="student_selected" (onDataChanged)="onDataChanged()"></app-student-form>
+            </div>
+        </div>
+    </div>
+</div>
